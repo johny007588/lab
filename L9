@@ -1,0 +1,30 @@
+9.  Write a program to implement the Concept of Interface in Java.
+
+interface Displayable 
+{  
+ void display(); 
+}  
+class Student implements Displayable 
+{  
+  String name; 
+  int rollNo; 
+  
+  Student(String name, int rollNo) 
+{  
+  this.name = name; 
+  this.rollNo = rollNo; 
+ }  
+  public void display() {  
+  System.out.println("Student Name: " + name); 
+  System.out.println("Roll Number : " + rollNo); 
+ }  
+}  
+public class prgs9 
+{  
+  public static void main(String[] args) 
+{  
+  Student s1 = new Student("Chethan", 101); 
+  Displayable d = s1; 
+  d.display(); 
+ }  
+}
