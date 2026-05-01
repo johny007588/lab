@@ -1,0 +1,43 @@
+13.  Write a program to demonstrate the usage of Swings.
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class prgs13 extends JFrame implements ActionListener 
+{
+JLabel label;
+JTextField textField;
+JButton button;
+public prgs13() 
+{
+super("Swing Demonstration");
+setLayout(new FlowLayout());
+label = new JLabel("Enter your name:");
+textField = new JTextField(15);
+button = new JButton("Submit");
+button.addActionListener(this);
+add(label);
+add(textField);
+add(button);
+setSize(300, 150);
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+setLocationRelativeTo(null); 
+setVisible(true);
+}
+public void actionPerformed(ActionEvent e) 
+{
+String name = textField.getText().trim();
+if (name.isEmpty()) 
+{
+JOptionPane.showMessageDialog(this, "Please enter your name!", "Warning", JOptionPane.WARNING_MESSAGE);
+} 
+else 
+{
+JOptionPane.showMessageDialog(this, "Hello, " + name + "!", "Greeting", JOptionPane.INFORMATION_MESSAGE);
+}
+} 
+public static void main(String[] args) 
+{
+new prgs13();
+}
+}
