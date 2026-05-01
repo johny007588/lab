@@ -1,0 +1,36 @@
+8.  Write a program to implement Exception handling in Java.
+
+ import java.util.*; 
+
+  class MyException extends Exception 
+{  
+  MyException(String s) 
+{  
+  super(s); 
+ }  
+}  
+  public class prg8 
+{  
+  public static void main(String argv[]) throws MyException 
+{   
+  System.out.print("Enter marks: "); 
+  
+ try 
+{  
+  Scanner sc = new Scanner(System.in); 
+  int marks = sc.nextInt(); 
+  if (marks > 100 || marks < 0) 
+{  
+  throw new MyException("Input marks not in Range");  
+} 
+else 
+{  
+  System.out.println("Marks: " + marks); 
+ }  
+ }  
+ catch (Exception e) 
+{  
+ System.out.println("InputError --- Invalid Marks --- Re-Enter.. " + e);  
+  }  
+ }  
+}
