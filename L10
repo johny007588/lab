@@ -1,0 +1,45 @@
+10.  Write a program to get file name at runtime and display number of lines and
+words in that file(create a text file )
+
+import java.io.*; 
+import java.util.Scanner; 
+public class prgs10  
+ {  
+ public static void main(String[] args) 
+{  
+ Scanner sc = new Scanner(System.in); 
+ System.out.print("Enter file name with path: "); 
+ String fileName = sc.nextLine(); 
+ int lineCount = 0; 
+ int wordCount = 0; 
+ try 
+{  
+ File file = new File(fileName); 
+ if (!file.exists()) 
+{  
+ System.out.println("File not found! Please check the file name or path.");  return; 
+ }  
+
+ BufferedReader br = new BufferedReader(new FileReader(file));  String line; 
+ while ((line = br.readLine()) != null) 
+{  
+ lineCount++; 
+ String[] words = line.trim().split("\\s+"); 
+ if (!line.trim().isEmpty()) 
+{  
+ wordCount += words.length; 
+ }  
+ }  
+
+ br.close(); 
+ System.out.println("\n=== File Statistics ==="); 
+ System.out.println("File Name : " + file.getName()); 
+ System.out.println("Total Lines: " + lineCount); 
+ System.out.println("Total Words: " + wordCount); 
+ } catch (IOException e) 
+{  
+ System.out.println("Error reading file: " + e.getMessage());  
+}  
+ sc.close(); 
+ }  
+}
