@@ -1,0 +1,34 @@
+11.  Write a program to list files in the current working directory depending upon
+a given pattern.
+
+import java.io.*; 
+import java.util.*; 
+public class prg11 
+{  
+ public static void main(String[] args) 
+{  
+ Scanner sc = new Scanner(System.in); 
+
+  String currentDir = System.getProperty("user.dir"); 
+  System.out.println("Current Working Directory: " + currentDir); 
+  System.out.print("Enter file pattern (example: .java or .txt): ");  
+  String pattern = sc.nextLine().trim(); 
+
+  File dir = new File(currentDir); 
+  File[] matchingFiles = dir.listFiles((d, name) -> name.endsWith(pattern)); 
+
+  System.out.println("\n=== Files matching pattern \"" + pattern + "\" ==="); 
+  if (matchingFiles == null || matchingFiles.length == 0) 
+{  
+  System.out.println("No files found matching the given pattern.");  
+} 
+else 
+{  
+  for (File f : matchingFiles) 
+{  
+  System.out.println(f.getName()); 
+ }  
+ }  
+ sc.close(); 
+ }  
+}
