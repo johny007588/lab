@@ -1,0 +1,44 @@
+4.  Write a program to implement inheritance Concept in Java.
+
+class A 
+{
+int i, j;
+A(int a, int b) 
+{
+i = a;
+j = b;
+}
+void show() 
+{
+System.out.println("Inside A..");
+System.out.println("i and j: " + i + " " + j);
+}
+}
+class B extends A 
+{
+int k;
+B(int a, int b, int c) 
+{
+super(a, b);
+k = c;
+}
+void show() 
+{
+System.out.println("Inside B..");
+System.out.println("i and j: " + i + " " + j);
+System.out.println("k: " + k);
+System.out.println("Inside B.. calling A's show()");
+super.show();
+}
+}
+public class prg4 
+{
+public static void main(String args[]) 
+{
+B subOb = new B(1, 2, 3);
+subOb.show();
+A ob = new A(5, 4);
+System.out.println("\n");
+ob.show();
+}
+}
