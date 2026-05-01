@@ -1,0 +1,63 @@
+1.  Write a program to convert a given Decimal number to Binary, Octal and
+Hexadecimal using recursive functions
+
+import java.util.Scanner;
+public class DCI1
+{
+	public static String convertTobase(int n, int base)
+{
+  String digits="0123456789ABCDEF";
+  if(n<base)
+ {
+return String.valueOf(digits.charAt(n));
+}
+  else
+ {
+  return convertTobase(n/base,base)+digits.charAt(n%base);
+  }
+ }
+   public static void main(String[] args)
+ {
+ Scanner sc = new Scanner(System.in);
+ System.out.print("Enter a non-negative decimal number:");
+ int num = sc.nextInt();
+	
+if(num<0)
+{
+System.out.println("Please enter a non-negative integer:");
+sc.close();
+return;
+}
+int choice;
+do
+{
+System.out.println("\n === Decimal Conversion Menu ===");
+System.out.println("1. Convert to Binary");
+System.out.println("2. Convert to Octal");
+System.out.println("3. Convert to Hexadecimal");
+System.out.println("4. Exit");
+System.out.println("Enter your choice (1-4):");
+choice=sc.nextInt();
+
+  switch(choice)
+{
+  case 1:
+  System.out.println("Binary equivalent:" + convertTobase(num,2));
+  break;
+  case 2:
+  System.out.println("Octal equivalent:" + convertTobase(num,8));
+  break;
+  case 3:
+  System.out.println("Hexadecimal equivalent:" + convertTobase(num,16));
+  break;
+  case 4:
+  System.out.println("Exiting program.... Thank you!");
+  break;
+  default:
+  System.out.println("Invalid choice ! Please enter between 1-4.");
+ }
+}		
+while(choice !=4);
+sc.close();
+}
+}
